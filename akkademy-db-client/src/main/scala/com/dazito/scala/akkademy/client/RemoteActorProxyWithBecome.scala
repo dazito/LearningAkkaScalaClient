@@ -1,5 +1,7 @@
 package com.dazito.scala.akkademy.client
 
+import java.util.concurrent.TimeUnit
+
 import akka.actor.{Actor, Stash}
 import com.dazito.scala.dakkabase.messages.{Disconnected, Connected, GetRequest}
 
