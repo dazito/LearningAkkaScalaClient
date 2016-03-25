@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit
 import akka.actor.ActorSystem
 import akka.util.Timeout
 import akka.pattern.ask
-import com.dazito.scala.dakkabase.messages.{SetIfNotExists, DeleteMessage, GetRequest, SetRequest}
+import com.dazito.scala.dakkabase.messages._
 
 import scala.concurrent.Future
 import scala.language.postfixOps
@@ -32,6 +32,10 @@ class Client(remoteAddress: String) {
 
     def setIfNotExist(key: String, value: Object) = {
         remoteDb ? SetIfNotExists(key, value)
+    }
+
+    def setBatchRequest(batchRequestList: List[SetRequest]) = {
+        remoteDb ? ListSetRequest(batchRequestList)
     }
 
 }
