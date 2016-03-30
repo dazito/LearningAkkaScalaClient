@@ -38,4 +38,8 @@ class Client(remoteAddress: String) {
         remoteDb ? ListSetRequest(batchRequestList)
     }
 
+    def ping() = {
+        remoteDb ?  Connected
+    }
+
 }
